@@ -1,6 +1,21 @@
 import { atom, selector } from "recoil";
 import { Lesson } from "../models/lesson";
 
+export const consoleOutput = atom({
+    key: "consoleOutput",
+    default: "",
+});
+
+export const baselineExecutionTime = atom({
+    key: "baselineExecutionTime",
+    default: 10,
+});
+
+export const lastExecutionTime = atom({
+    key: "lastExecutionTime",
+    default: 20,
+});
+
 export const showLessonSelector = atom({
     key: "showLessonSelector",
     default: false,
@@ -8,7 +23,7 @@ export const showLessonSelector = atom({
 
 export const selectedLessonId = atom({
     key: "selectedLessonId",
-    default: "",
+    default: "python-1",
 });
 
 export const selectedLesson = selector({

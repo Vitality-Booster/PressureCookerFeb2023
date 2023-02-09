@@ -1,16 +1,15 @@
-export default function Results() {
-    let code = "";
+import { consoleOutput } from "@/lib/store/lessons";
+import { useRecoilValue } from "recoil";
 
-    for (let i = 0; i < 100; i++) {
-        code += "line " + i + "\n";
-    }
+export default function Results() {
+    const output = useRecoilValue(consoleOutput);
 
     return (
         <div className="bg-base-300">
             <div className="p-2 flex flex-col">
                 <div className="p-2 bg-neutral rounded-xl">Console</div>
                 <pre className="h-64 overflow-y-scroll">
-                    <code>{code}</code>
+                    <code>{output}</code>
                 </pre>
             </div>
         </div>

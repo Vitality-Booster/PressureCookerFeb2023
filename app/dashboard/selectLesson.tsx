@@ -1,17 +1,21 @@
+import { Courses, LessonDefinitions } from "@/lib/lessons";
 import { selectedLessonId, showLessonSelector } from "@/lib/store/lessons";
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 
 interface LessonProps {
     id: string;
-    name: string;
-    locked: boolean;
-    completed: boolean;
 }
 
-function Lesson({ name, locked, completed, id }: LessonProps) {
+function Lesson({ id }: LessonProps) {
+    const [locked, setLocked] = useState(false);
+    const [completed, setCompleted] = useState(false);
+
     const [_lessonId, setLessonId] = useRecoilState(selectedLessonId);
     const [_showLessonSelector, setShowLessonSelector] =
         useRecoilState(showLessonSelector);
+
+    const name = LessonDefinitions.get(id)?.title;
 
     return (
         <div className="p-2 flex gap-2 items-center">
@@ -91,30 +95,17 @@ export default function SelectLesson() {
             className={`fixed w-96 p-2 rounded-md min-h-[16rem] bg-base-300 shadow-xl z-50 left-20 top-2
             ${!open && "hidden"}`}
         >
-            <div className="divider">Python Loops Course</div>
+            {Array.from(Courses).map(([course, lessons]) => (
+                <div key={course}>
+                    <div className="divider">{course}</div>
 
-            <div className="grid grid-cols-2">
-                <Lesson
-                    id="python-1"
-                    locked={false}
-                    completed={true}
-                    name="Lesson 1"
-                />
-                <Lesson
-                    id="python-2"
-                    locked={true}
-                    completed={false}
-                    name="Lesson 2"
-                />
-                <Lesson
-                    id="python-3"
-                    locked={false}
-                    completed={false}
-                    name="Lesson 3"
-                />
-            </div>
-
-            <div className="divider">Python Algorithms Course</div>
+                    <div className="grid grid-cols-2">
+                        {lessons.map((lesson) => (
+                            <Lesson id={lesson} key={lesson} />
+                        ))}
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }
