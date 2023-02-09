@@ -1,21 +1,28 @@
 import { showLessonSelector } from "@/lib/store/lessons";
+import { showScoreboard } from "@/lib/store/scoreboard";
 import { useRecoilState } from "recoil";
 import SelectLesson from "./selectLesson";
+import ScoreboardClicked from "@/app/dashboard/scoreboard";
 
 export default function Sidebar() {
     const [lessonSelectorOpen, setLessonSelectorOpen] =
         useRecoilState(showLessonSelector);
 
+    const [scoreboardOpen, setScoreboardOpen] =
+        useRecoilState(showScoreboard);
+
     return (
         <div>
             <div className="flex flex-col relative p-2 gap-2">
                 <SelectLesson />
+                <ScoreboardClicked />
 
                 <button
                     className="btn btn-ghost btn-active tooltip tooltip-right"
                     data-tip="Learn"
                     onClick={() => {
                         setLessonSelectorOpen(!lessonSelectorOpen);
+                        // setScoreboardOpen(!scoreboardOpen);
                     }}
                 >
                     <svg
@@ -36,6 +43,10 @@ export default function Sidebar() {
                 <button
                     className="btn btn-ghost tooltip tooltip-right"
                     data-tip="Personal Leaderboard"
+                    onClick={() => {
+                        // setLessonSelectorOpen(!lessonSelectorOpen);
+                        setScoreboardOpen(!scoreboardOpen);
+                    }}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
