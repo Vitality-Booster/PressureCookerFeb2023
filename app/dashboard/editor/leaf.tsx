@@ -4,7 +4,7 @@ export default function LeafSVG() {
             id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 120 739"
-            className="text-success h-full absolute right-4 top-2"
+            className="text-green-500 h-screen"
         >
             <path
                 className="cls-1 text-transparent"
