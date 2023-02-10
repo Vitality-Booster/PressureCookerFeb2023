@@ -93,16 +93,16 @@ export default function Editor() {
                 // than the baseline in times, like 2x faster or 0.5x slower
                 compared = `| ${(
                     baseLine / parsedResult.execution_time
-                ).toFixed(2)}x ${faster ? "faster" : "slower"} than baseline`;
+                ).toFixed(2)}x ${faster ? "more energy used" : "less energy used"} than baseline`;
 
                 setConsoleOutput((prev) => {
-                    return `${prev}\nExecution time: ${parsedResult.execution_time}ms ${compared}`;
+                    return `${prev}\nPower consumption: ${parsedResult.execution_time} Joules ${compared}`;
                 });
             } else {
                 setBaseline(parsedResult.execution_time);
                 setFirstExecution(false);
                 setConsoleOutput(
-                    `Execution time: ${parsedResult.execution_time}ms ${compared}`
+                    `Power consumption: ${parsedResult.execution_time} Joules ${compared}`
                 );
             }
 

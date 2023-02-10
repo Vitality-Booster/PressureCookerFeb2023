@@ -40,10 +40,12 @@ export const selectedLesson = selector({
         if (!response.ok) {
             return {
                 id: "",
+                course: "",
                 title: "",
                 description: "",
                 code: "",
                 hints: [],
+                researchMaterial: null
             };
         }
 

@@ -7,7 +7,7 @@ export default function LessonTab() {
     <div>
       <div>
         <div className="text-sm opacity-70 py-1">
-          Course Name
+          {lesson.course}
         </div>
         <div className="text-xl font-bold pb-2 pl-5">
           {lesson.title}

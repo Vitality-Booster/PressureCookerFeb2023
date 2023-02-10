@@ -63,7 +63,7 @@ export default function HintsTab() {
     const lesson = useRecoilValue(selectedLesson);
 
     return (
-        <div className="grid gap-5">
+        <div className="grid gap-5 list-disc">
             {lesson.hints.map(function(object, i){
                     return <Hint index={object.index} text={object.text} code={object.code} key={i} />;
                 })}
