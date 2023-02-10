@@ -32,7 +32,7 @@ export default async function handler(
     const start = Date.now();
 
     // Spawn python3 process to execute code
-    const python = spawn("python3", ["-c", body.code]);
+    const python = spawn("python", ["-c", body.code]);
 
     let finished = false;
 

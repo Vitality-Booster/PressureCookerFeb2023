@@ -1,3 +1,5 @@
+import {Hint} from "@lib/models/hint";
+
 export interface Lesson {
   id: string;
   title: string;
@@ -5,5 +7,5 @@ export interface Lesson {
   completed: boolean;
   locked: boolean;
   code: string;
-  hints: string[];
+  hints: Hint[];
 }

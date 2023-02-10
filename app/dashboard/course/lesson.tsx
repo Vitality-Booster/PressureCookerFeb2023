@@ -6,10 +6,10 @@ export default function LessonTab() {
   return (
     <div>
       <div>
-        <div className="text-sm opacity-70">
+        <div className="text-sm opacity-70 py-1">
           Course Name
         </div>
-        <div className="text-xl font-bold">
+        <div className="text-xl font-bold pb-2 pl-5">
           {lesson.title}
         </div>
 
